@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+keycloak:
+  realm: springBott
+  auth-server-url: http://localhost:8080/auth
+  resource: spring-boot-with-keycloak
+  public-client: true
+  bearer-only: true
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo_db?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password:
+    hikari:
+      initialization-fail-timeout: 1000
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
